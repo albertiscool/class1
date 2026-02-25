@@ -1,7 +1,8 @@
 # Class 1 — Session Summary
 
 **Date:** Wednesday, February 25, 2026  
-**Author:** Albert Yang (`albertiscool`)
+**Author:** Albert Yang (`albertiscool`)  
+**Demo Site:** [https://albertiscool.github.io/class1/](https://albertiscool.github.io/class1/)
 
 ---
 
