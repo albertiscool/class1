@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Albert Yang – Personal Page">
+  <title>Albert Yang</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@300;700&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset ─────────────────────────────────────────── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* ── Animated gradient background ─────────────────── */
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #1a1a2e);
+      background-size: 400% 400%;
+      animation: gradientShift 12s ease infinite;
+      overflow: hidden;
+      color: #e0e0e0;
+    }
+
+    @keyframes gradientShift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ── Floating orbs (decorative) ───────────────────── */
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: .45;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .orb--1 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, #6c63ff, transparent 70%);
+      top: -10%; left: -8%;
+      animation: float1 18s ease-in-out infinite;
+    }
+    .orb--2 {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, #f857a6, transparent 70%);
+      bottom: -12%; right: -6%;
+      animation: float2 22s ease-in-out infinite;
+    }
+    .orb--3 {
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, #00d2ff, transparent 70%);
+      top: 50%; left: 60%;
+      animation: float3 16s ease-in-out infinite;
+    }
+
+    @keyframes float1 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50%      { transform: translate(60px, 40px) scale(1.15); }
+    }
+    @keyframes float2 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50%      { transform: translate(-50px, -30px) scale(1.1); }
+    }
+    @keyframes float3 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50%      { transform: translate(-40px, 50px) scale(1.2); }
+    }
+
+    /* ── Glassmorphism card ────────────────────────────── */
+    .card {
+      position: relative;
+      z-index: 1;
+      width: min(520px, 90vw);
+      padding: 56px 48px;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.35),
+        inset 0 0 80px rgba(255, 255, 255, 0.03);
+      text-align: center;
+      animation: cardIn .8s cubic-bezier(.22,1,.36,1) both;
+    }
+
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(40px) scale(.96); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* ── Avatar ring ──────────────────────────────────── */
+    .avatar-ring {
+      width: 110px; height: 110px;
+      margin: 0 auto 28px;
+      border-radius: 50%;
+      padding: 4px;
+      background: linear-gradient(135deg, #6c63ff, #f857a6, #00d2ff);
+      background-size: 200% 200%;
+      animation: ringRotate 4s linear infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @keyframes ringRotate {
+      0%   { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+
+    .avatar {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      background: #1a1a2e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 38px;
+      color: #fff;
+      letter-spacing: 2px;
+      user-select: none;
+    }
+
+    /* ── Name ──────────────────────────────────────────── */
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #ffffff 0%, #a78bfa 50%, #f472b6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+
+    .tagline {
+      font-size: .95rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, .5);
+      margin-bottom: 36px;
+      letter-spacing: .5px;
+    }
+
+    /* ── Divider ───────────────────────────────────────── */
+    .divider {
+      width: 48px;
+      height: 3px;
+      margin: 0 auto 32px;
+      border-radius: 3px;
+      background: linear-gradient(90deg, #6c63ff, #f857a6);
+    }
+
+    /* ── Clock ─────────────────────────────────────────── */
+    .clock-label {
+      font-size: .75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: rgba(255, 255, 255, .35);
+      margin-bottom: 10px;
+    }
+
+    .clock {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(2.4rem, 6vw, 3.4rem);
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: #fff;
+      text-shadow: 0 0 30px rgba(108, 99, 255, .4);
+      transition: text-shadow .3s;
+    }
+    .clock:hover {
+      text-shadow: 0 0 40px rgba(248, 87, 166, .6);
+    }
+
+    .date {
+      margin-top: 8px;
+      font-size: .9rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, .45);
+    }
+
+    /* ── Particles canvas ─────────────────────────────── */
+    #particles {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Decorative orbs -->
+  <div class="orb orb--1"></div>
+  <div class="orb orb--2"></div>
+  <div class="orb orb--3"></div>
+
+  <!-- Particle canvas -->
+  <canvas id="particles"></canvas>
+
+  <!-- Main card -->
+  <div class="card" id="main-card">
+    <div class="avatar-ring">
+      <div class="avatar">AY</div>
+    </div>
+
+    <h1>Albert Yang</h1>
+    <p class="tagline">Welcome to my personal page</p>
+
+    <div class="divider"></div>
+
+    <p class="clock-label">Current Time</p>
+    <p class="clock" id="clock">--:--:--</p>
+    <p class="date" id="date"></p>
+  </div>
+
+  <script>
+    /* ── Live clock ──────────────────────────────────── */
+    function updateClock() {
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2, '0');
+      const m = String(now.getMinutes()).padStart(2, '0');
+      const s = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById('clock').textContent = `${h}:${m}:${s}`;
+
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      document.getElementById('date').textContent = now.toLocaleDateString('en-US', options);
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+
+    /* ── Tiny star-field particles ────────────────────── */
+    (() => {
+      const canvas = document.getElementById('particles');
+      const ctx = canvas.getContext('2d');
+      let W, H;
+      const stars = [];
+      const COUNT = 80;
+
+      function resize() {
+        W = canvas.width  = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      for (let i = 0; i < COUNT; i++) {
+        stars.push({
+          x: Math.random() * W,
+          y: Math.random() * H,
+          r: Math.random() * 1.4 + 0.4,
+          dx: (Math.random() - 0.5) * 0.25,
+          dy: (Math.random() - 0.5) * 0.25,
+          alpha: Math.random() * 0.6 + 0.2,
+          pulse: Math.random() * Math.PI * 2,
+        });
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+        for (const s of stars) {
+          s.x += s.dx;
+          s.y += s.dy;
+          s.pulse += 0.015;
+
+          if (s.x < 0) s.x = W;
+          if (s.x > W) s.x = 0;
+          if (s.y < 0) s.y = H;
+          if (s.y > H) s.y = 0;
+
+          const a = s.alpha + Math.sin(s.pulse) * 0.2;
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255,255,255,${a})`;
+          ctx.fill();
+        }
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+  </script>
+</body>
+</html>
