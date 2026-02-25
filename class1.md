@@ -5,6 +5,12 @@
 
 ---
 
+## Preview
+
+![Albert Yang Personal Page](class1.png)
+
+---
+
 ## What We Did Today
 
 ### 1. 🎨 Built a Personal Single Page (`index.html`)
